@@ -1,0 +1,30 @@
+﻿@model Policy_Management_System.Models.PolicyDetail
+
+@{
+    ViewBag.Title = "PolicyDetail";
+    Layout = "~/Views/Shared/_CustomerDashboard.cshtml";
+}
+
+@Html.ActionLink("<- Back","Index","Customer")
+<h2>
+    @Model.PolicyName
+</h2>
+<table class="table table-bordered">
+    <tr>
+        <td>Assured Sum on Policy</td>
+        <td>@Model.SumAssured &#8377</td>
+    </tr>
+    <tr>
+        <td>Premium(in months)</td>
+        <td>@Model.Premium &#8377</td>
+    </tr>
+    <tr>
+        <td>Tenure</td>
+        <td>@Model.Tenure years</td>
+    </tr>
+</table>
+<h4>Detailed Information Regarding the Policy:</h4>
+<div>
+    @Html.Raw(Model.PolicyInfo)
+</div>
+

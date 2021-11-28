@@ -1,0 +1,26 @@
+﻿@{
+   
+    //string role = Session["Role"].ToString();
+
+    if (Session["Role"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        
+    }
+    else if (Session["Role"].ToString()=="2")
+    {
+        Layout = "~/Views/Shared/_Dashboard.cshtml";  // change it to _customer.cshtml
+    }
+    else if (Session["Role"].ToString() == "3")
+    {
+        Layout = "~/Views/Shared/_CustomerDashboard.cshtml";
+    }
+
+    else if (Session["Role"].ToString() == "3")
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
+    
+    
+}
+

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Policy Management System</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        .bg {
+            background-image: url('../Images/PMSBlurredHeader.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            height: 500px;
+       }
+        .intro-title {
+            text-align: center;
+            color: white;
+            font-size: 60px;
+            font-weight: 300;
+            font-family: Lato,sans-serif;
+            line-height: 300px;
+        }
+        .intro-sub-title {
+            text-align: center;
+            color: white;
+            position:relative;
+            bottom:110px;
+            font-size: 25px;
+            /*font-weight: 300;
+            font-family: Lato,sans-serif;
+            line-height: 320px;*/
+        }
+        .intro-box{
+            height: 100px;
+            text-align: center; 
+        }
+
+        #img-section-services {
+            background-image: url('../Images/PMSServicesImage.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            height: 400px;
+            margin-top:25px;
+        }
+        .link-styling {
+            list-style-type: none;
+            padding: 0px;
+        }
+
+            .link-styling li a {
+                color:grey;
+                text-decoration:none;
+            }
+        .login-cover {
+            background-image: url('../Images/PMSBlurredHeader.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100px;
+            margin-top:20px;
+        }
+           
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Policy Management System", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li>@Html.ActionLink("Sign Up","Index","Registration")</li>
+                    <li>@Html.ActionLink("Sign In", "Index", "Login")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        @RenderBody()
+
+        <div style="background-color:rgb(34,34,34); height:200px; margin-top:20px;">
+            <div class="col-md-4">
+                <h3 style="color:grey">Links</h3>
+                <ul class="link-styling">
+                    <li><a href="../Home">Home</a></li>
+                    <li><a href="../Home/#aboutus">About Us</a></li>
+                    <li><a href="../Home/#img-section-services">Our Services</a></li>
+                    <li><a href="../Login">Login</a></li>
+                    <li><a href="../Registration">Register</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 container">
+                <h3 style="color:grey">About Us</h3>
+                <article style="text-align:justify; color:grey">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                </article>
+            </div>
+            
+            <div class="col-md-4 container">
+                <h3 style="color:grey">Contact Us</h3>
+                <article style="text-align:justify; color:grey">
+                    3844 Green Hill Road
+                    Fort Smith, AR 72908<br/>
+                    Mobile:7598423615<br/>
+                    Email:abc@gmail.com
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

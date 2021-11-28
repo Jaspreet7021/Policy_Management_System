@@ -1,0 +1,76 @@
+﻿@model Policy_Management_System.Models.PolicyDetail
+
+@{
+    ViewBag.Title = "AddPolicy";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2>Add Policy</h2>
+
+@using(Html.BeginForm("Index","Proposer",FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(i=>i.CatId,"Select The policy category.")
+            </td>
+            <td>
+                @Html.DropDownList("Categories", "Select Category")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Enter Policy Name:")
+            </td>
+            <td>
+                @Html.TextBoxFor(i => i.PolicyName, new { @class="form-control", required="required" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Enter the assured Sum:")
+            </td>
+            <td>
+                @Html.TextBoxFor(i => i.SumAssured, new {@class="form-control",required="required" ,pattern="^[0-9]*$"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Enter the Tenure(in years)")
+            </td>
+            <td>
+                @Html.TextBoxFor(i => i.Tenure, new { @class="form-control" , required="required",pattern = "^[0-9]*$" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(i=>i.Premium,"Enter The Premium(in months):")
+            </td>
+            <td>
+                @Html.TextBoxFor(i => i.Premium, new { @class="form-control",required="required",pattern = "^[0-9]*$" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(i=>i.PolicyInfo,"Enter The information regarding policy:")
+            </td>
+            <td>
+                @Html.TextAreaFor(i => i.PolicyInfo, new {@class="form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit"  value="Submit" class="form-control btn-primary"/>
+            </td>
+        </tr>
+    </table>
+}
+
+<script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({ selector: 'textarea', width: 500 });
+</script>
+
+
+

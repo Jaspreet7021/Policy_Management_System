@@ -1,0 +1,64 @@
+﻿@model Policy_Management_System.Models.Registration
+
+@{
+    ViewBag.Title = "UpdateUserProfile";
+    Layout = "~/Views/Shared/_CustomerDashboard.cshtml";
+}
+
+
+<h2 style="text-align:center;">User Details</h2>
+
+@using (Html.BeginForm("UpdateUserProfile", "Customer", FormMethod.Post))
+{
+    <table style="width: 25%; margin: 0px auto;">
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.Name, new { @class = "form-control", pattern = "^[\\p{L} .'-]+$" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.Role.Name, new { @class = "form-control", disabled = "true" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.Mobile, new { @class = "form-control", pattern = "^[0-9]*$" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.State, new { @class = "form-control", placeholder = "Enter your State", pattern = "^[\\p{L} .'-]+$" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.City, new { @class = "form-control", placeholder = "Enter your City", pattern = "^[a-zA-Z]*$" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.DateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control" }) @*Try to change the datetime format to MM/dd/yyyy*@
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.RadioButtonFor(i => i.Gender, "Male")Male
+                @Html.RadioButtonFor(i => i.Gender, "Female")Female
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextAreaFor(i => i.Address, new { @class = "form-control", placeholder = "Enter your Address" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*@Html.ActionLink("Update Record", "UpdateRecord")*@
+                <input type="submit" value="Update Record" class="form-control btn-primary" />
+            </td>
+        </tr>
+    </table>
+
+}
+

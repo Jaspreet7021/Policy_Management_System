@@ -1,0 +1,97 @@
+﻿@model Policy_Management_System.Models.Registration
+
+@{
+    ViewBag.Title = "Registration";
+}
+<div class="login-cover">
+    <h2 style="text-align:center; color:white; font-size:40px; line-height:90px;">JOIN US</h2>
+</div>
+
+@using (Html.BeginForm("Index", "Registration", FormMethod.Post))
+{
+    <table style="width: 25%; margin: 0px auto; margin-top: 30px;">
+        <tr>
+            <td>Register Yourself as:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DropDownList("Role", "Select Role")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.Name, new { @class = "form-control", required = "required", placeholder = "Enter Your Name",pattern="^[\\p{L} .'-]+$"})
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                @Html.RadioButtonFor(i => i.Gender, "Male", new { required = "required" })Male
+                @Html.RadioButtonFor(i => i.Gender, "Female", new { required = "required" }) Female
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.Mobile, new { @class = "form-control", required = "required", placeholder = "Enter Your Mobile Number", pattern = "[789][0-9]{9}" })
+            </td>
+        </tr>
+        @*<tr>
+                <td>
+                    @Html.TextBoxFor(i => i.Email, new { @class = "form-control", required = "required", placeholder = "Enter Your Email Id" })
+                </td>
+
+            </tr>*@
+        <tr>
+            <td>
+                @Html.TextBoxFor(i => i.DateOfBirth, new { @class = "form-control", required = "required", placeholder = "Enter DOB", type = "date" })
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>
+                @Html.PasswordFor(i => i.Password, new { @class = "form-control", required = "required", placeholder = "Enter Password", id = "pwd" })
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <input type="password" id="cnfPwd" placeholder="Confirm Password" class="form-control" />
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button onclick="return checkPass()" class="form-control btn-primary" style="width:280px;">Register</button>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:justify">
+                @Html.ActionLink("Login page", "Index", "Login")
+            </td>
+        </tr>
+    </table>
+
+
+
+
+
+
+
+}
+
+
+@* Thanks a fucking ton javascript for the password validation. *@
+<script type="text/javascript">
+    function checkPass() {
+        var pass = document.getElementById("pwd").value;
+        var cnfpass = document.getElementById("cnfPwd").value;
+        if (pass != cnfpass) {
+            alert("Password does not match with the confirmed password.");
+            return false;
+        }
+    }
+</script>
+
+
+

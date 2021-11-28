@@ -1,0 +1,17 @@
+﻿@model Policy_Management_System.Models.Category
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+<h2>Add Category</h2>
+
+@using(Html.BeginForm("AddCategory","Admin",FormMethod.Post))
+{
+    @Html.TextBoxFor(i => i.Name, new { @class="form-control"})
+    <br/>
+    <br/>
+    <button>Add</button>
+}
+

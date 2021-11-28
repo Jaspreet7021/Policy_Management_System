@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Policy_Management_System.Models.PolicyDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerDashboard.cshtml";
+}
+
+<h2>View Policies</h2>
+
+
+@using (Html.BeginForm("SearchPolicy", "Customer", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.DropDownList("Categories", "Select Category")
+            </td>
+            <td>
+                @*@Html.ActionLink("Search", "ShowPolicy", "Customer")*@
+                <button class="form-control btn-primary">Search</button>
+            </td>
+        </tr>
+    </table>
+
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Policy Name</th>
+        <th>Assured Sum</th>
+        <th>Premium</th>
+        <th>Tenure(in Years)</th>
+        <th>Policy Category</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PolicyName</td>
+            <td>@item.SumAssured</td>
+            <td>@item.Premium</td>
+            <td>@item.Tenure</td>
+            <td>@item.CatId.Name</td>
+
+            <td>
+                @Html.ActionLink("View More", "PolicyDetail", new { id = @item.Id })
+
+            </td>
+        </tr>
+    }
+
+
+
+</table>
+
+
+
+

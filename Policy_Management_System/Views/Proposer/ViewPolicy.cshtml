@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Policy_Management_System.Models.PolicyDetail>
+@{
+    ViewBag.Title = "ViewPolicy";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2>Your Policies</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Policy Name</th>
+        <th>Assured Sum</th>
+        <th>Premium</th>
+        <th>Tenure</th>
+        <th>Policy Category</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PolicyName</td>
+            <td>@item.SumAssured</td>
+            <td>@item.Premium</td>
+            <td>@item.Tenure</td>
+            <td>@item.CatId.Name</td>
+            
+            <td>
+                @Html.ActionLink("Edit", "EditPolicy", new { id = @item.Id }) |
+                @Html.ActionLink("Delete", "DeletePolicy", new { id = @item.Id }, new { onclick = "return confirm('Are you sure you want to delete this policy?');" })
+            </td>
+        </tr>
+    }
+
+
+
+</table>
+
